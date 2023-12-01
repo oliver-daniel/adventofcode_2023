@@ -1,7 +1,7 @@
 
-TEST = 0
+DEBUG = 0
 
-if TEST:
+if DEBUG:
     # N = [line.strip() for line in open('./in/1.test.txt').readlines()]
     N = [line.strip() for line in open('./in/1.test.2.txt').readlines()]
 else:

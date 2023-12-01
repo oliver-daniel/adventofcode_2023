@@ -4,9 +4,9 @@ from sys import argv
 day = argv[1]
 
 template = f"""
-TEST = 1
+DEBUG = 1
 
-if TEST:
+if DEBUG:
     N = [line.strip() for line in open('./in/{day}.test.txt').readlines()]
 else:
     N = [line.strip() for line in open('./in/{day}.txt').readlines()]
