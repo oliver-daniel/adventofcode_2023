@@ -1,0 +1,5 @@
+tempCodeRunnerFile*
+__pycache__
+notes
+in/*.txt
+!in/*.test*.txt
