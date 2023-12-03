@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """Display all days."""
 from importlib import import_module
 
