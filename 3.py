@@ -33,7 +33,7 @@ def create_coords():
                 for j in range(lookahead):
                     coords.append((i, seek + j))
 
-                number_coords.append((coords, k))
+                number_coords.append((tuple(coords), k))
 
                 seek += lookahead - 1
 
@@ -44,13 +44,18 @@ def create_coords():
 
     return symbol_coords, number_coords
 
+
+@cache
 def is_adjacent(number, symbol):
     coords, _sym = symbol
+
     for y, x in number[0]:
-        for dy, dx in it.product(range(-1, 2), repeat=2):
-            if (y + dy, x + dx) == coords:
-                return True
+        dy = abs(coords[0] - y)
+        dx = abs(coords[1] - x)
+        if dy <= 1 and dx <= 1:
+            return True
     return False
+
 
 def part_1():
     symbol_coords, number_coords = create_coords()
@@ -70,21 +75,18 @@ def part_2():
     symbol_coords, number_coords = create_coords()
 
     t = 0
-    
+
     for symbol in symbol_coords:
         _coords, sym = symbol
-        if sym != "*": continue
+        if sym != "*":
+            continue
 
-        adjacent = [number for number in number_coords if is_adjacent(number, symbol)]
+        adjacent = [
+            number for number in number_coords if is_adjacent(number, symbol)]
         if len(adjacent) == 2:
             t += adjacent[0][1] * adjacent[1][1]
     return t
 
-
-
-
-
-    
 
 if __name__ == '__main__':
     print('--- Part 1 ---')
