@@ -3,13 +3,11 @@ from sys import argv
 
 day = argv[1]
 
-template = f"""
-DEBUG = 1
+template = \
+    f"""DEBUG = 1
 
-if DEBUG:
-    N = [line.strip() for line in open('./in/{day}.test.txt').readlines()]
-else:
-    N = [line.strip() for line in open('./in/{day}.txt').readlines()]
+N = [line.strip() for line in open('./in/{day}.test.txt').readlines()]
+# N = [line.strip() for line in open('./in/{day}.txt').readlines()]
 
 def part_1():
     pass
@@ -25,14 +23,17 @@ if __name__ == '__main__':
 
 """
 
+
 def buffer_in():
     buffer = []
     while True:
         try:
             line = input()
             buffer.append(line)
-        except EOFError: break
+        except EOFError:
+            break
     return "\n".join(buffer)
+
 
 if __name__ == "__main__":
     print(f"Enter test data for day {day}, then CTRL+D:")

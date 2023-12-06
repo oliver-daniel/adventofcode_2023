@@ -40,9 +40,8 @@ def part_2():
         k = len(scratched & winners)
         for j in range(k):
             c[i + j + 1] += c[i]
-    
-    return sum(c.values())
 
+    return sum(c.values())
 
 
 if __name__ == '__main__':
