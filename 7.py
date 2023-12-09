@@ -2,7 +2,7 @@ from collections import Counter
 from functools import cmp_to_key
 
 
-DEBUG = 1
+DEBUG = 0
 
 N = [line.strip() for line in open('./in/7.test.txt').readlines()]
 N = [line.strip() for line in open('./in/7.txt').readlines()]

@@ -1,4 +1,4 @@
-DEBUG = 1
+DEBUG = 0
 
 N = [line.strip() for line in open('./in/6.test.txt').readlines()]
 N = [line.strip() for line in open('./in/6.txt').readlines()]
